@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 12:35:48 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/13 12:59:32 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/20 16:18:38 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,27 @@ void	ft_sort_simple(t_stack *a, t_stack *b)
 	}
 	while (b->size > 0)
 		ft_pa(a, b);
+}
+
+void	ft_move_to_top_b(t_stack *b, int pos)
+{
+	int	size;
+
+	size = b->size;
+	if (pos <= size / 2)
+	{
+		while (pos > 0)
+		{
+			ft_rb(b);
+			--pos;
+		}
+	}
+	else
+	{
+		while (pos < size)
+		{
+			ft_rrb(b);
+			++pos;
+		}
+	}
 }

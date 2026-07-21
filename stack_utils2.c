@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 10:50:27 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/13 11:26:59 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/20 16:35:40 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	ft_is_valid_int(char *str)
 	return (1);
 }
 
-int	ft_validate_args(int argc, char **argv)
+int	ft_validate_args(int argc, char **argv, int start)
 {
 	int	i;
 
-	i = 1;
+	i = start;
 	while (i < argc)
 	{
 		if (!ft_is_valid_int(argv[i]))

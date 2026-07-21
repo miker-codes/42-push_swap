@@ -13,7 +13,11 @@ SRC		= main.c \
 		push_ops.c \
 		rotate_ops.c \
 		reverse_ops.c \
-		sort_simple.c
+		sort_simple.c \
+		sort_radix.c \
+		disorder.c \
+		sort_chunks.c \
+		dispatch.c
 
 OBJS		= $(SRC:.c=.o)
 

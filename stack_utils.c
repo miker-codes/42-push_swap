@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 10:10:04 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/13 11:32:57 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/20 16:31:41 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	ft_print_stack(t_stack *stack)
 	}
 }
 
-void	ft_fill_stack(int argc, char **argv, t_stack *stack)
+void	ft_fill_stack(int argc, char **argv, t_stack *stack, int start)
 {
 	int		i;
 	t_node	*node;
 
-	i = 1;
+	i = start;
 	while (i < argc)
 	{
 		node = ft_new_node(ft_atoi(argv[i]));
