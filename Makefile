@@ -17,7 +17,8 @@ SRC		= main.c \
 		sort_radix.c \
 		disorder.c \
 		sort_chunks.c \
-		dispatch.c
+		dispatch.c \
+		sort_insertion.c
 
 OBJS		= $(SRC:.c=.o)
 

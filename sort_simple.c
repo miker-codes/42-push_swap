@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 12:35:48 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/20 16:18:38 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/21 12:16:51 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,6 @@ int	ft_min_position(t_stack *stack)
 	return (min_pos);
 }
 
-void	ft_move_to_top(t_stack *stack, int pos)
-{
-	int	size;
-
-	size = stack->size;
-	if (pos <= size / 2)
-	{
-		while (pos > 0)
-		{
-			ft_ra(stack);
-			--pos;
-		}
-	}
-	else
-	{
-		while (pos < size)
-		{
-			ft_rra(stack);
-			++pos;
-		}
-	}
-}
-
 void	ft_sort_simple(t_stack *a, t_stack *b)
 {
 	int	pos;
@@ -66,23 +43,26 @@ void	ft_sort_simple(t_stack *a, t_stack *b)
 	while (a->size > 0)
 	{
 		pos = ft_min_position(a);
-		ft_move_to_top(a, pos);
+		ft_move_to_top(a, pos, 0);
 		ft_pb(a, b);
 	}
 	while (b->size > 0)
 		ft_pa(a, b);
 }
 
-void	ft_move_to_top_b(t_stack *b, int pos)
+void	ft_move_to_top(t_stack *ab, int pos, int flag)
 {
 	int	size;
 
-	size = b->size;
+	size = ab->size;
 	if (pos <= size / 2)
 	{
 		while (pos > 0)
 		{
-			ft_rb(b);
+			if (flag)
+				ft_rb(ab);
+			else
+				ft_ra(ab);
 			--pos;
 		}
 	}
@@ -90,7 +70,10 @@ void	ft_move_to_top_b(t_stack *b, int pos)
 	{
 		while (pos < size)
 		{
-			ft_rrb(b);
+			if (flag)
+				ft_rrb(ab);
+			else
+				ft_rra(ab);
 			++pos;
 		}
 	}

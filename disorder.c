@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 15:28:50 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/19 16:01:54 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/21 10:25:02 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,18 @@ double	ft_disorder_index(t_stack *stack)
 	if (total == 0)
 		return (0.0);
 	return ((double)mistakes / total);
+}
+
+int	ft_is_sorted(t_stack *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack->top;
+	while (tmp && tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 10:10:04 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/20 16:31:41 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/21 13:17:06 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,6 @@ void	ft_add_bottom(t_stack *stack, t_node *node)
 		stack->bottom = node;
 	}
 	stack->size++;
-}
-
-void	ft_print_stack(t_stack *stack)
-{
-	t_node	*tmp;
-
-	tmp = stack->top;
-	while (tmp)
-	{
-		ft_putnbr_fd(tmp->value, 1);
-		ft_putchar_fd('\n', 1);
-		tmp = tmp->next;
-	}
 }
 
 void	ft_fill_stack(int argc, char **argv, t_stack *stack, int start)

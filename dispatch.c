@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 16:27:25 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/20 16:28:34 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/21 10:25:21 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_dispatch(t_stack *a, t_stack *b, int strategy)
 {
 	double	disorder;
 
+	if (ft_is_sorted(a))
+		return ;
 	if (strategy == 1)
 		ft_sort_simple(a, b);
 	else if (strategy == 2)
@@ -38,7 +40,9 @@ void	ft_dispatch(t_stack *a, t_stack *b, int strategy)
 	else
 	{
 		disorder = ft_disorder_index(a);
-		if (disorder < 0.5)
+		if (disorder < 0.2)
+			ft_sort_insertion(a, b);
+		else if (disorder < 0.5)
 			ft_sort_chunks(a, b);
 		else
 			ft_sort_radix(a, b);
