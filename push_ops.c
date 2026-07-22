@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:41:02 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/13 12:59:11 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/22 19:42:39 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_node	*ft_pop_top(t_stack *stack)
 	return (node);
 }
 
-void	ft_pb(t_stack *a, t_stack *b)
+void	ft_pb(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_node	*node;
 
@@ -56,10 +56,15 @@ void	ft_pb(t_stack *a, t_stack *b)
 		return ;
 	node = ft_pop_top(a);
 	ft_add_top(b, node);
-	ft_putstr_fd("pb\n", 1);
+	if (bench->active)
+	{
+		bench->count[4] += 1;
+	}
+	else
+		ft_putstr_fd("pb\n", 1);
 }
 
-void	ft_pa(t_stack *a, t_stack *b)
+void	ft_pa(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_node	*node;
 
@@ -67,5 +72,10 @@ void	ft_pa(t_stack *a, t_stack *b)
 		return ;
 	node = ft_pop_top(b);
 	ft_add_top(a, node);
-	ft_putstr_fd("pa\n", 1);
+	if (bench->active)
+	{
+		bench->count[3] += 1;
+	}
+	else
+		ft_putstr_fd("pa\n", 1);
 }

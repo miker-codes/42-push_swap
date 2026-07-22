@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 12:35:48 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/21 12:16:51 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/22 19:46:59 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ int	ft_min_position(t_stack *stack)
 	return (min_pos);
 }
 
-void	ft_sort_simple(t_stack *a, t_stack *b)
+void	ft_sort_simple(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	pos;
 
 	while (a->size > 0)
 	{
 		pos = ft_min_position(a);
-		ft_move_to_top(a, pos, 0);
-		ft_pb(a, b);
+		ft_move_to_top(a, pos, 0, bench);
+		ft_pb(a, b, bench);
 	}
 	while (b->size > 0)
-		ft_pa(a, b);
+		ft_pa(a, b, bench);
 }
 
-void	ft_move_to_top(t_stack *ab, int pos, int flag)
+void	ft_move_to_top(t_stack *ab, int pos, int flag, t_bench *bench)
 {
 	int	size;
 
@@ -60,9 +60,9 @@ void	ft_move_to_top(t_stack *ab, int pos, int flag)
 		while (pos > 0)
 		{
 			if (flag)
-				ft_rb(ab);
+				ft_rb(ab, bench);
 			else
-				ft_ra(ab);
+				ft_ra(ab, bench);
 			--pos;
 		}
 	}
@@ -71,9 +71,9 @@ void	ft_move_to_top(t_stack *ab, int pos, int flag)
 		while (pos < size)
 		{
 			if (flag)
-				ft_rrb(ab);
+				ft_rrb(ab, bench);
 			else
-				ft_rra(ab);
+				ft_rra(ab, bench);
 			++pos;
 		}
 	}

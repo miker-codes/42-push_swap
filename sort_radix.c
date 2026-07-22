@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 12:49:35 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/19 13:17:14 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/22 19:47:42 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_count_bits(int size)
 	return (bits);
 }
 
-void	ft_sort_radix(t_stack *a, t_stack *b)
+void	ft_sort_radix(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	bits;
 	int	bit;
@@ -65,13 +65,13 @@ void	ft_sort_radix(t_stack *a, t_stack *b)
 		while (i < size)
 		{
 			if (((a->top->index >> bit) & 1) == 0)
-				ft_pb(a, b);
+				ft_pb(a, b, bench);
 			else
-				ft_ra(a);
+				ft_ra(a, bench);
 			i++;
 		}
 		while (b->size > 0)
-			ft_pa(a, b);
+			ft_pa(a, b, bench);
 		bit++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 12:08:12 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/13 12:51:40 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/22 19:39:30 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,36 @@ void	ft_reverse_rotate_stack(t_stack *stack)
 	ft_add_top(stack, node);
 }
 
-void	ft_rra(t_stack *a)
+void	ft_rra(t_stack *a, t_bench *bench)
 {
 	ft_reverse_rotate_stack(a);
-	ft_putstr_fd("rra\n", 1);
+	if (bench->active)
+	{
+		bench->count[8] += 1;
+	}
+	else
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	ft_rrb(t_stack *b)
+void	ft_rrb(t_stack *b, t_bench *bench)
 {
 	ft_reverse_rotate_stack(b);
-	ft_putstr_fd("rrb\n", 1);
+	if (bench->active)
+	{
+		bench->count[9] += 1;
+	}
+	else
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	ft_rrr(t_stack *a, t_stack *b)
+void	ft_rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	ft_reverse_rotate_stack(a);
 	ft_reverse_rotate_stack(b);
-	ft_putstr_fd("rrr\n", 1);
+	if (bench->active)
+	{
+		bench->count[10] += 1;
+	}
+	else
+		ft_putstr_fd("rrr\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: mruiz-ra <mruiz-ra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 15:31:19 by mruiz-ra          #+#    #+#             */
-/*   Updated: 2026/07/21 12:18:50 by mruiz-ra         ###   ########.fr       */
+/*   Updated: 2026/07/22 19:49:05 by mruiz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_max_position(t_stack *stack)
 	return (max_pos);
 }
 
-void	ft_push_chunks(t_stack *a, t_stack *b, int chunk_size)
+void	ft_push_chunks(t_stack *a, t_stack *b, int chunk_size, t_bench *bench)
 {
 	int	limit;
 
@@ -55,26 +55,26 @@ void	ft_push_chunks(t_stack *a, t_stack *b, int chunk_size)
 	{
 		if (a->top->index < limit)
 		{
-			ft_pb(a, b);
+			ft_pb(a, b, bench);
 			if (b->size % chunk_size == 0)
 				limit += chunk_size;
 		}
 		else
-			ft_ra(a);
+			ft_ra(a, bench);
 	}
 }
 
-void	ft_sort_chunks(t_stack *a, t_stack *b)
+void	ft_sort_chunks(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	chunk_size;
 	int	pos;
 
 	chunk_size = ft_chunk_size(a->size);
-	ft_push_chunks(a, b, chunk_size);
+	ft_push_chunks(a, b, chunk_size, bench);
 	while (b->size > 0)
 	{
 		pos = ft_max_position(b);
-		ft_move_to_top(b, pos, 1);
-		ft_pa(a, b);
+		ft_move_to_top(b, pos, 1, bench);
+		ft_pa(a, b, bench);
 	}
 }
