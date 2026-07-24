@@ -1,4 +1,4 @@
-*Este proyecto ha sido creado como parte del currículo de 42 por blromero, mruiz-ra.
+*Este proyecto ha sido creado como parte del currículo de 42 por blromero, mruiz-ra.*
 # Description
 This project has made to sort any list of numbers using two stacks, a specifics set of instructions to manipulate them, and various algorithms with differents time complexity.
 
